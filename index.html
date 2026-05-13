@@ -30,11 +30,13 @@
 
 /* ---- Hero ---- */
 .hero {
-  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
   display: grid;
   grid-template-columns: 1fr 40%;
   padding-top: var(--nav-h);
-  overflow: hidden;
+  overflow-x: hidden;
+  border-bottom: var(--border);
 }
 .hero-text {
   display: flex;
@@ -51,7 +53,7 @@
   gap: 40px;
 }
 .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
-.hero-title { max-width: 14ch; margin-bottom: 32px; }
+.hero-title { max-width: 14ch; margin-bottom: 32px; font-size: clamp(40px, min(8vw, 9vh), 112px); }
 .hero-title em { font-style: normal; color: var(--red); }
 .hero-sub { display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
 .hero-desc { max-width: 420px; }
@@ -74,41 +76,6 @@
   transform: translateX(4%);
 }
 
-/* ---- Ticker ---- */
-.ticker {
-  border-top: var(--border);
-  border-bottom: var(--border);
-  padding: 14px 0;
-  overflow: hidden;
-  background: var(--cream);
-}
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 30s linear infinite;
-}
-.ticker-item {
-  display: flex;
-  align-items: center;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-dark);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.ticker-item .sep {
-  width: 4px;
-  height: 4px;
-  background: var(--red);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin: 0 28px;
-}
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 
 /* ---- Section header ---- */
 .section-header {
@@ -193,7 +160,7 @@
   z-index: -1;
 }
 .service-row:hover::before { opacity: 0.06; }
-.service-num { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.25); }
+.service-num { font-size: 11px; letter-spacing: 0.1em; color: var(--white); }
 .service-name {
   font-family: var(--font-title);
   font-weight: 700;
@@ -275,34 +242,6 @@
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track" id="ticker-track">
-    <span class="ticker-item">Leadership Narratives <span class="sep"></span></span>
-    <span class="ticker-item">Communications Strategy <span class="sep"></span></span>
-    <span class="ticker-item">Public & Media Relations <span class="sep"></span></span>
-    <span class="ticker-item">Brand Identity <span class="sep"></span></span>
-    <span class="ticker-item">Editorial Products <span class="sep"></span></span>
-    <span class="ticker-item">Report Development <span class="sep"></span></span>
-    <span class="ticker-item">Content Creation <span class="sep"></span></span>
-    <span class="ticker-item">Crisis Management <span class="sep"></span></span>
-    <span class="ticker-item">Organisational Narratives <span class="sep"></span></span>
-    <span class="ticker-item">Campaign Development <span class="sep"></span></span>
-    <span class="ticker-item">In-House Comms Support <span class="sep"></span></span>
-    <span class="ticker-item">Leadership Narratives <span class="sep"></span></span>
-    <span class="ticker-item">Communications Strategy <span class="sep"></span></span>
-    <span class="ticker-item">Public & Media Relations <span class="sep"></span></span>
-    <span class="ticker-item">Brand Identity <span class="sep"></span></span>
-    <span class="ticker-item">Editorial Products <span class="sep"></span></span>
-    <span class="ticker-item">Report Development <span class="sep"></span></span>
-    <span class="ticker-item">Content Creation <span class="sep"></span></span>
-    <span class="ticker-item">Crisis Management <span class="sep"></span></span>
-    <span class="ticker-item">Organisational Narratives <span class="sep"></span></span>
-    <span class="ticker-item">Campaign Development <span class="sep"></span></span>
-    <span class="ticker-item">In-House Comms Support <span class="sep"></span></span>
-    <span class="ticker-item">Environmental Design <span class="sep"></span></span>
-  </div>
-</div>
 
 <!-- SELECTED WORK -->
 <section class="section">

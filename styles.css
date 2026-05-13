@@ -72,8 +72,8 @@
   --border:      1px solid rgba(14,14,14,0.14);
   --border-bold: none;
 
-  --radius-sm:   0px;
-  --radius-md:   0px;
+  --radius-sm:   999px;
+  --radius-md:   999px;
 
   --nav-h:       64px;
   --gutter:      clamp(48px, 9vw, 160px);
@@ -95,9 +95,6 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  background-image: radial-gradient(circle, var(--grid-color) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size);
-  background-attachment: fixed;
 }
 
 /* ---- Typography ---- */
@@ -173,9 +170,9 @@ nav {
 }
 .nav-links a {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--gray-dark);
+  color: var(--black);
   transition: color 0.2s;
   position: relative;
 }
@@ -260,8 +257,9 @@ nav {
   padding-top: calc(var(--nav-h) + clamp(64px, 10vw, 120px));
   padding-bottom: clamp(48px, 7vw, 96px);
 }
-.page-hero h1 { margin-bottom: 28px; }
-.page-hero p.lead { max-width: 560px; }
+.page-hero { text-align: center; }
+.page-hero h1 { margin: 0 auto 28px; font-size: clamp(40px, min(8vw, 9vh), 112px); }
+.page-hero p.lead { max-width: 560px; margin: 0 auto; }
 
 /* ---- CTA strip ---- */
 .cta-strip {
@@ -320,7 +318,8 @@ footer {
 }
 .footer-links a {
   font-size: 13px;
-  color: var(--gray-dark);
+  font-weight: 700;
+  color: var(--black);
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--black); }

@@ -186,42 +186,14 @@ h1 { font-size: clamp(44px, 7vw, 96px); }
   margin-top: 8px;
 }
 
-/* ---- Next project ---- */
-.next-project { background: var(--cream); }
-.next-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 320px;
+/* ---- Back to work ---- */
+.back-to-work {
+  padding: clamp(48px, 7vw, 80px) 0;
+  border-top: var(--border);
 }
-.next-label-col {
-  padding: clamp(48px, 7vw, 80px) clamp(32px, 5vw, 80px) clamp(48px, 7vw, 80px) 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.next-project-col {
-  padding: clamp(48px, 7vw, 80px) 0 clamp(48px, 7vw, 80px) clamp(32px, 5vw, 80px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.next-project-col a { display: block; transition: color 0.2s; }
-.next-project-col a:hover h3 { color: var(--red); }
-.next-eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-mid);
-  margin-bottom: 16px;
-}
-.next-title { margin-bottom: 12px; }
-.next-arrow {
-  font-size: 32px;
-  color: var(--gray-mid);
-  transition: all 0.3s var(--ease);
-  display: inline-block;
-}
-.next-project-col a:hover .next-arrow { color: var(--red); transform: translateX(8px); }
+
+/* ---- Next project button ---- */
+.next-label-col .btn { font-size: 12px; padding: 9px 12px 9px 18px; }
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
@@ -324,42 +296,16 @@ h1 { font-size: clamp(44px, 7vw, 96px); }
         </div>
       </div>
 
-      <div class="sidebar-card reveal reveal-delay-2" style="background:var(--black);border-color:var(--black);">
-        <p class="sidebar-card-title" style="color:rgba(255,255,255,0.35);border-bottom-color:rgba(255,255,255,0.1);">Start a project</p>
-        <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6;margin-bottom:20px;">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-        <a href="contact.html" class="btn btn-primary btn-arrow" style="width:100%;justify-content:center;">Get in touch</a>
-      </div>
+      <a href="contact.html" class="btn btn-primary btn-arrow reveal reveal-delay-2" style="width:100%;justify-content:center;">Get in touch</a>
 
     </aside>
   </div>
 </div>
 
-<!-- NEXT PROJECT -->
-<section class="next-project">
+<!-- BACK TO WORK -->
+<section class="back-to-work">
   <div class="container">
-    <div class="next-inner">
-      <div class="next-label-col reveal">
-        <div>
-          <p class="next-eyebrow">Continue exploring</p>
-          <h2>More work</h2>
-        </div>
-        <a href="work.html" class="btn btn-outline btn-arrow">View all projects</a>
-      </div>
-      <div class="next-project-col reveal reveal-delay-1">
-        <a href="case-study.html">
-          <p class="next-eyebrow">Next project</p>
-          <h3 class="next-title">Ipsum Studio</h3>
-          <p style="max-width:340px;margin-bottom:24px">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
-          <div>
-            <span class="tag tag-red">Digital Experience</span>
-            &nbsp;<span class="tag">2024</span>
-          </div>
-        </a>
-        <a href="case-study.html" style="display:inline-block;margin-top:24px">
-          <span class="next-arrow">→</span>
-        </a>
-      </div>
-    </div>
+    <a href="work.html" class="btn btn-outline btn-arrow reveal">View all projects</a>
   </div>
 </section>
 
