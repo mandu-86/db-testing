@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Fireside New Energy</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ---- Page hero ---- */
+.page-hero { border-bottom: var(--border); }
+.page-hero h1 { max-width: 18ch; }
+
+/* ---- Mission ---- */
+.mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  padding: clamp(64px, 9vw, 120px) 0;
+  border-bottom: var(--border);
+}
+.mission-left { padding-right: clamp(24px, 4vw, 64px); }
+.mission-left h2 {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+}
+.mission-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 8px;
+}
+.mission-right p { max-width: 560px; }
+
+/* ---- Team ---- */
+.team {
+  padding-top: clamp(64px, 9vw, 120px);
+  padding-bottom: clamp(64px, 9vw, 120px);
+  border-bottom: var(--border);
+}
+.team h2 { margin-bottom: clamp(40px, 5vw, 64px); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--col-gap);
+}
+.team-card { display: flex; flex-direction: column; gap: 16px; }
+.team-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cream);
+  border: var(--border);
+}
+.team-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.team-name { font-size: 18px; margin-bottom: 2px; }
+.team-role { font-size: 13px; color: var(--gray-dark); }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .mission { grid-template-columns: 1fr; }
+  .mission-left { padding-right: 0; }
+  .mission-left h2 { position: static; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .cta-strip { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV + WORDMARK (injected by components.js) -->
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero container">
+  <h1 class="reveal">Lorem ipsum dolor sit amet consectetur.</h1>
+  <p class="lead reveal reveal-delay-1">
+    Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+</section>
+
+<!-- MISSION -->
+<section class="container">
+  <div class="mission">
+    <div class="mission-left">
+      <h2 class="reveal">Lorem ipsum dolor sit.</h2>
+    </div>
+    <div class="mission-right">
+      <p class="reveal">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <p class="reveal reveal-delay-1">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p class="reveal reveal-delay-2">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team container">
+  <h2 class="reveal">Lorem ipsum dolor.</h2>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo">
+        <img src="1.png" alt="Lorem Ipsum">
+      </div>
+      <div>
+        <h4 class="team-name">Lorem Ipsum</h4>
+        <p class="team-role">Dolor Sit & Amet Consectetur</p>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-photo">
+        <img src="2.png" alt="Adipiscing Elit">
+      </div>
+      <div>
+        <h4 class="team-name">Adipiscing Elit</h4>
+        <p class="team-role">Sed Do Eiusmod</p>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-photo">
+        <img src="3.png" alt="Tempor Incididunt">
+      </div>
+      <div>
+        <h4 class="team-name">Tempor Incididunt</h4>
+        <p class="team-role">Ut Labore Designer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container">
+  <div class="cta-strip">
+    <h2 class="reveal">Amet consectetur adipiscing?</h2>
+    <a href="contact.html" class="btn btn-primary btn-arrow reveal reveal-delay-1">Contact us</a>
+  </div>
+</section>
+
+<!-- FOOTER (injected by components.js) -->
+<div id="site-footer"></div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+setTimeout(() => {
+  document.querySelectorAll('.page-hero .reveal').forEach(el => el.classList.add('visible'));
+}, 100);
+</script>
+
+<script src="components.js"></script>
+</body>
+</html>

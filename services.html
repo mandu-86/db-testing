@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Fireside New Energy</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ---- Page hero ---- */
+.page-hero h1 { max-width: 16ch; }
+.page-hero p.lead { max-width: 520px; }
+
+/* ---- Narrative intro ---- */
+.narrative-intro-wrap { background: var(--black); }
+.narrative-intro {
+  padding-top: clamp(64px, 9vw, 120px);
+  padding-bottom: clamp(64px, 9vw, 120px);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(24px, 4vw, 64px);
+}
+.narrative-intro p.lead {
+  max-width: 640px;
+  color: rgba(255,255,255,0.75);
+}
+.narrative-intro em { font-style: italic; color: var(--red); }
+
+/* ---- Pillars ---- */
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(64px, 9vw, 120px);
+  border-bottom: var(--border);
+  gap: 0;
+}
+.pillar { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); }
+.pillar-left  { padding-right: clamp(32px, 5vw, 80px); border-right: var(--border); }
+.pillar-right { padding-left:  clamp(32px, 5vw, 80px); }
+.pillar-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.pillar h3 { color: var(--black); }
+.pillar p { max-width: 380px; }
+.service-list { list-style: none; display: flex; flex-direction: column; margin-top: 8px; }
+.service-list li {
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--black);
+  padding: 14px 0;
+  border-top: var(--border);
+  transition: color 0.2s;
+  cursor: default;
+}
+.service-list li:last-child { border-bottom: var(--border); }
+.service-list li:hover { color: var(--red); }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .pillars { grid-template-columns: 1fr; gap: 64px; }
+  .pillar-left, .pillar-right { padding: 0; border: none; }
+  .cta-strip { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV + WORDMARK (injected by components.js) -->
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero container">
+  <h1 class="reveal">What we do.</h1>
+  <p class="lead reveal reveal-delay-1">
+    Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+</section>
+
+<!-- NARRATIVE INTRO -->
+<section class="narrative-intro-wrap">
+  <div class="container">
+    <div class="narrative-intro">
+      <p class="lead reveal">Everything we do is grounded in <em>narrative</em> — the connective thread between strategy and creativity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="container">
+  <div class="pillars">
+
+    <!-- Strategic Comms -->
+    <div class="pillar pillar-left reveal">
+      <p class="pillar-label">Strategic Comms</p>
+      <h3>Lorem ipsum dolor sit amet consectetur adipiscing.</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="service-list">
+        <li>Leadership narratives</li>
+        <li>Communications strategy</li>
+        <li>Campaign development</li>
+        <li>Organisational narratives</li>
+        <li>Public + media relations</li>
+        <li>Crisis management</li>
+        <li>In-house comms support</li>
+        <li>Comms team capacity building</li>
+      </ul>
+    </div>
+
+    <!-- Creative Comms -->
+    <div class="pillar pillar-right reveal reveal-delay-1">
+      <p class="pillar-label">Creative Comms</p>
+      <h3>Lorem ipsum dolor sit amet consectetur adipiscing.</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="service-list">
+        <li>Brand identity</li>
+        <li>Content creation</li>
+        <li>Editorial products</li>
+        <li>Copywriting</li>
+        <li>Report development</li>
+        <li>Design + visual messaging</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container">
+  <div class="cta-strip">
+    <h2 class="reveal">Ready to start a conversation?</h2>
+    <a href="contact.html" class="btn btn-primary btn-arrow reveal reveal-delay-1">Get in touch</a>
+  </div>
+</section>
+
+<!-- FOOTER (injected by components.js) -->
+<div id="site-footer"></div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+setTimeout(() => {
+  document.querySelectorAll('.page-hero .reveal').forEach(el => el.classList.add('visible'));
+}, 100);
+</script>
+
+<script src="components.js"></script>
+</body>
+</html>

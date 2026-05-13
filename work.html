@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work — Fireside New Energy</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ---- Page hero ---- */
+.page-hero h1 { max-width: 14ch; margin-bottom: 0; }
+
+/* ---- Featured card ---- */
+.work-featured {
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(32px, 4vw, 48px);
+}
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  border: var(--border);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s var(--ease);
+}
+.featured-card:hover { border-color: var(--black); }
+.featured-image {
+  aspect-ratio: 4 / 3;
+  background: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.featured-image .ph-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.featured-image .ph-size {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--gray-mid);
+}
+.featured-body {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+.featured-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.featured-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.featured-body h2 { margin-top: 16px; margin-bottom: 16px; }
+.featured-body p { max-width: 380px; }
+.featured-arrow {
+  font-size: 24px;
+  color: var(--gray-mid);
+  transition: all 0.3s var(--ease);
+  display: inline-block;
+  margin-top: 8px;
+}
+.featured-card:hover .featured-arrow { color: var(--red); transform: translateX(6px); }
+
+/* ---- Work grid ---- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--col-gap);
+  padding-bottom: clamp(64px, 9vw, 120px);
+}
+.work-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; }
+.work-card-image {
+  aspect-ratio: 3 / 2;
+  background: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  border: var(--border);
+  transition: border-color 0.25s var(--ease);
+}
+.work-card:hover .work-card-image { border-color: var(--black); }
+.work-card-image .ph-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.work-card-image .ph-size {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--gray-mid);
+}
+.work-card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.work-card h3 { font-size: clamp(18px, 2vw, 22px); transition: color 0.2s; }
+.work-card:hover h3 { color: var(--red); }
+.work-card p { font-size: 14px; line-height: 1.6; }
+
+/* ---- CTA strip override ---- */
+.cta-strip { border-top: var(--border); }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-image { aspect-ratio: 16 / 9; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .cta-strip { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .work-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV + WORDMARK (injected by components.js) -->
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero container">
+  <h1 class="reveal">Our work.</h1>
+</section>
+
+
+<!-- FEATURED CASE STUDY -->
+<div class="work-featured container">
+  <a href="case-study.html" class="featured-card reveal">
+    <div class="featured-image">
+      <span class="ph-label">Featured image</span>
+      <span class="ph-size">1200 × 900</span>
+    </div>
+    <div class="featured-body">
+      <div>
+        <div class="featured-meta">
+          <span class="featured-label">Featured</span>
+          <span class="tag tag-red">Strategic Comms</span>
+          <span class="tag">2024</span>
+        </div>
+        <h2>Lorem Ipsum Co.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+      </div>
+      <span class="featured-arrow">→</span>
+    </div>
+  </a>
+</div>
+
+<!-- WORK GRID -->
+<div class="container">
+  <div class="work-grid">
+
+    <a href="case-study.html" class="work-card reveal" data-type="creative">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Creative Comms</span>
+        <span class="tag">2024</span>
+      </div>
+      <h3>Ipsum Studio</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-1" data-type="strategic">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Strategic Comms</span>
+        <span class="tag">2024</span>
+      </div>
+      <h3>Dolor Foods</h3>
+      <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-2" data-type="creative">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Creative Comms</span>
+        <span class="tag">2023</span>
+      </div>
+      <h3>Amet Collective</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal" data-type="strategic">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Strategic Comms</span>
+        <span class="tag">2023</span>
+      </div>
+      <h3>Consectetur Group</h3>
+      <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-1" data-type="creative">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Creative Comms</span>
+        <span class="tag">2023</span>
+      </div>
+      <h3>Adipiscing Partners</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-2" data-type="strategic">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Strategic Comms</span>
+        <span class="tag">2022</span>
+      </div>
+      <h3>Eiusmod Energy</h3>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal" data-type="creative">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Creative Comms</span>
+        <span class="tag">2022</span>
+      </div>
+      <h3>Tempor Institute</h3>
+      <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-1" data-type="strategic">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Strategic Comms</span>
+        <span class="tag">2022</span>
+      </div>
+      <h3>Labore & Co.</h3>
+      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</p>
+    </a>
+
+    <a href="case-study.html" class="work-card reveal reveal-delay-2" data-type="creative">
+      <div class="work-card-image">
+        <span class="ph-label">Image</span>
+        <span class="ph-size">800 × 533</span>
+      </div>
+      <div class="work-card-meta">
+        <span class="tag tag-red">Creative Comms</span>
+        <span class="tag">2021</span>
+      </div>
+      <h3>Dolore Foundation</h3>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
+    </a>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="container">
+  <div class="cta-strip">
+    <h2 class="reveal">Ready to start a conversation?</h2>
+    <a href="contact.html" class="btn btn-primary btn-arrow reveal reveal-delay-1">Get in touch</a>
+  </div>
+</section>
+
+<!-- FOOTER (injected by components.js) -->
+<div id="site-footer"></div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+setTimeout(() => {
+  document.querySelectorAll('.page-hero .reveal, .filter-bar.reveal').forEach(el => el.classList.add('visible'));
+}, 100);
+
+</script>
+
+<script src="components.js"></script>
+</body>
+</html>

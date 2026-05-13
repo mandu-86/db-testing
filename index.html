@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fireside — Creative Agency</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ---- Utilities ---- */
+.section { padding: clamp(72px, 10vw, 140px) 0; }
+
+.anno {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.anno::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+/* ---- Hero ---- */
+.hero {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--gutter);
+  overflow: hidden;
+}
+.hero-inner {
+  padding: clamp(32px, 4vw, 56px) 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.hero-title { max-width: 14ch; margin-bottom: 32px; }
+.hero-title em { font-style: normal; color: var(--red); }
+.hero-sub { display: flex; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+.hero-desc { max-width: 420px; }
+.hero-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.hero-image-zone {
+  background: var(--cream);
+  border-left: var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hero-image-zone img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+  mix-blend-mode: multiply;
+  display: block;
+  transform: translateX(4%);
+}
+
+/* ---- Ticker ---- */
+.ticker {
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding: 14px 0;
+  overflow: hidden;
+  background: var(--cream);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 30s linear infinite;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ticker-item .sep {
+  width: 4px;
+  height: 4px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: 0 28px;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- Section header ---- */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+  padding-bottom: 24px;
+  border-bottom: var(--border-bold);
+}
+.section-header-left { flex: 1; }
+
+/* ---- Work cards ---- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--col-gap);
+}
+.work-card {
+  display: block;
+  border: var(--border);
+  overflow: hidden;
+  background: var(--white);
+  transition: border-color 0.3s, transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  cursor: pointer;
+}
+.work-card:hover {
+  border-color: var(--black);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(14,14,14,0.08);
+}
+.work-card-img { aspect-ratio: 4 / 3; overflow: hidden; background: var(--cream); }
+.work-card-body { padding: 20px 24px 24px; border-top: var(--border); }
+.work-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tag { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-dark); border: var(--border); padding: 3px 8px; }
+.tag-red { color: var(--red); border-color: var(--red); background: var(--red-muted); }
+.work-card-title { font-size: 20px; margin-bottom: 8px; }
+.work-card-desc { font-size: 14px; color: var(--gray-dark); line-height: 1.6; }
+.work-card-link { display: flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--black); transition: color 0.2s; }
+.work-card:hover .work-card-link { color: var(--red); }
+.work-card-link .arrow { transition: transform 0.3s var(--ease); }
+.work-card:hover .work-card-link .arrow { transform: translateX(4px); }
+
+/* ---- Services ---- */
+.services-section {
+  background: var(--black);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.services-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+.services-section h2 { color: var(--white); }
+.services-section p { color: rgba(255,255,255,0.55); }
+.services-section .section-header { border-bottom-color: rgba(255,255,255,0.12); }
+.services-list { display: flex; flex-direction: column; position: relative; z-index: 1; }
+.service-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+.service-row::before {
+  content: '';
+  position: absolute;
+  left: -32px; right: -32px;
+  top: 0; bottom: 0;
+  background: var(--red);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+.service-row:hover::before { opacity: 0.06; }
+.service-num { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.25); }
+.service-name {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  transition: color 0.3s;
+}
+.service-row:hover .service-name { color: var(--red); }
+.service-arrow { font-size: 20px; color: rgba(255,255,255,0.25); transition: all 0.3s var(--ease); }
+.service-row:hover .service-arrow { color: var(--red); transform: translateX(6px); }
+
+/* ---- Team ---- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--col-gap);
+  margin-top: 40px;
+}
+.team-card { display: flex; flex-direction: column; gap: 14px; }
+.team-photo { aspect-ratio: 1 / 1; overflow: hidden; }
+.team-name { font-size: 18px; margin-bottom: 2px; }
+.team-role { font-size: 13px; color: var(--gray-dark); }
+
+/* ---- CTA section ---- */
+.cta-section {
+  background: var(--cream);
+  text-align: center;
+  padding: clamp(80px, 12vw, 160px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-section h2 { margin-bottom: 20px; }
+.cta-section p { max-width: 480px; margin: 0 auto 40px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-image-zone { display: none; }
+  .hero-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV + WORDMARK (injected by components.js) -->
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-inner">
+      <div>
+        <h1 class="hero-title reveal">
+          <!-- cms:hero_title -->Lorem ipsum<br>dolor <em>sit</em><br>amet.<!-- /cms:hero_title -->
+        </h1>
+        <div class="hero-sub reveal reveal-delay-1">
+          <p class="lead hero-desc">
+            <!-- cms:hero_desc -->Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<!-- /cms:hero_desc -->
+          </p>
+          <div class="hero-actions">
+            <a href="work.html" class="btn btn-primary btn-arrow"><!-- cms:hero_cta_primary -->View our work<!-- /cms:hero_cta_primary --></a>
+            <a href="contact.html" class="btn btn-outline"><!-- cms:hero_cta_secondary -->Get in touch<!-- /cms:hero_cta_secondary --></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-zone">
+    <img src="fIRE.png" alt="Halftone wind turbine illustration">
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="ticker-track">
+    <span class="ticker-item">Leadership Narratives <span class="sep"></span></span>
+    <span class="ticker-item">Communications Strategy <span class="sep"></span></span>
+    <span class="ticker-item">Public & Media Relations <span class="sep"></span></span>
+    <span class="ticker-item">Brand Identity <span class="sep"></span></span>
+    <span class="ticker-item">Editorial Products <span class="sep"></span></span>
+    <span class="ticker-item">Report Development <span class="sep"></span></span>
+    <span class="ticker-item">Content Creation <span class="sep"></span></span>
+    <span class="ticker-item">Crisis Management <span class="sep"></span></span>
+    <span class="ticker-item">Organisational Narratives <span class="sep"></span></span>
+    <span class="ticker-item">Campaign Development <span class="sep"></span></span>
+    <span class="ticker-item">In-House Comms Support <span class="sep"></span></span>
+    <span class="ticker-item">Leadership Narratives <span class="sep"></span></span>
+    <span class="ticker-item">Communications Strategy <span class="sep"></span></span>
+    <span class="ticker-item">Public & Media Relations <span class="sep"></span></span>
+    <span class="ticker-item">Brand Identity <span class="sep"></span></span>
+    <span class="ticker-item">Editorial Products <span class="sep"></span></span>
+    <span class="ticker-item">Report Development <span class="sep"></span></span>
+    <span class="ticker-item">Content Creation <span class="sep"></span></span>
+    <span class="ticker-item">Crisis Management <span class="sep"></span></span>
+    <span class="ticker-item">Organisational Narratives <span class="sep"></span></span>
+    <span class="ticker-item">Campaign Development <span class="sep"></span></span>
+    <span class="ticker-item">In-House Comms Support <span class="sep"></span></span>
+    <span class="ticker-item">Environmental Design <span class="sep"></span></span>
+  </div>
+</div>
+
+<!-- SELECTED WORK -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-header-left">
+        <h2><!-- cms:work_section_title -->Lorem ipsum dolor sit<!-- /cms:work_section_title --></h2>
+      </div>
+      <a href="work.html" class="btn btn-outline btn-arrow">All projects</a>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- Card 1 -->
+      <a href="case-study.html" class="work-card reveal">
+        <div class="work-card-img">
+          <img src="43_ideas.png" alt="Solar panels — Hearthstone Co." style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;mix-blend-mode:multiply;background:var(--cream);">
+        </div>
+        <div class="work-card-body">
+          <div class="work-card-tags">
+            <span class="tag tag-red"><!-- cms:work_card1_tag -->Brand Identity<!-- /cms:work_card1_tag --></span>
+            <span class="tag">2024</span>
+          </div>
+          <h3 class="work-card-title"><!-- cms:work_card1_title -->Lorem Ipsum Co.<!-- /cms:work_card1_title --></h3>
+          <p class="work-card-desc"><!-- cms:work_card1_desc -->Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.<!-- /cms:work_card1_desc --></p>
+          <span class="work-card-link">View case study <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="case-study.html" class="work-card reveal reveal-delay-1">
+        <div class="work-card-img">
+          <img src="43_ideas__2_.png" alt="Electricity pylons — Vellum Studio" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;mix-blend-mode:multiply;background:var(--cream);">
+        </div>
+        <div class="work-card-body">
+          <div class="work-card-tags">
+            <span class="tag tag-red"><!-- cms:work_card2_tag -->Digital Experience<!-- /cms:work_card2_tag --></span>
+            <span class="tag">2024</span>
+          </div>
+          <h3 class="work-card-title"><!-- cms:work_card2_title -->Ipsum Studio<!-- /cms:work_card2_title --></h3>
+          <p class="work-card-desc"><!-- cms:work_card2_desc -->Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip.<!-- /cms:work_card2_desc --></p>
+          <span class="work-card-link">View case study <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="case-study.html" class="work-card reveal reveal-delay-2">
+        <div class="work-card-img">
+          <img src="43_ideas__3_.png" alt="Electrical substation — Mesa Foods" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;mix-blend-mode:multiply;background:var(--cream);">
+        </div>
+        <div class="work-card-body">
+          <div class="work-card-tags">
+            <span class="tag tag-red"><!-- cms:work_card3_tag -->Campaign<!-- /cms:work_card3_tag --></span>
+            <span class="tag">2023</span>
+          </div>
+          <h3 class="work-card-title"><!-- cms:work_card3_title -->Dolor Foods<!-- /cms:work_card3_title --></h3>
+          <p class="work-card-desc"><!-- cms:work_card3_desc -->Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.<!-- /cms:work_card3_desc --></p>
+          <span class="work-card-link">View case study <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-header-left">
+        <h2><!-- cms:services_title -->Lorem ipsum dolor<!-- /cms:services_title --></h2>
+      </div>
+    </div>
+
+    <div class="services-list">
+      <div class="service-row reveal">
+        <span class="service-num">01</span>
+        <span class="service-name"><!-- cms:service_1 -->Lorem Ipsum & Dolor Sit<!-- /cms:service_1 --></span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row reveal reveal-delay-1">
+        <span class="service-num">02</span>
+        <span class="service-name"><!-- cms:service_2 -->Amet Consectetur Adipiscing<!-- /cms:service_2 --></span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row reveal reveal-delay-2">
+        <span class="service-num">03</span>
+        <span class="service-name"><!-- cms:service_3 -->Sed Do Eiusmod Tempor<!-- /cms:service_3 --></span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row reveal reveal-delay-3">
+        <span class="service-num">04</span>
+        <span class="service-name"><!-- cms:service_4 -->Incididunt Ut Labore<!-- /cms:service_4 --></span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row reveal">
+        <span class="service-num">05</span>
+        <span class="service-name"><!-- cms:service_5 -->Dolore Magna Aliqua<!-- /cms:service_5 --></span>
+        <span class="service-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-header-left">
+        <h2><!-- cms:team_title -->Lorem ipsum dolor sit amet<!-- /cms:team_title --></h2>
+        <p class="reveal" style="margin-top:20px;max-width:480px"><!-- cms:about_desc -->Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.<!-- /cms:about_desc --></p>
+        <a href="about.html" class="btn btn-outline btn-arrow reveal" style="margin-top:28px"><!-- cms:about_cta -->Meet the team<!-- /cms:about_cta --></a>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <img src="1.png" alt="Alex Morrison" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div>
+          <h4 class="team-name"><!-- cms:team1_name -->Lorem Ipsum<!-- /cms:team1_name --></h4>
+          <p class="team-role"><!-- cms:team1_role -->Dolor Sit & Amet Consectetur<!-- /cms:team1_role --></p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-photo">
+          <img src="2.png" alt="Jamie Chen" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div>
+          <h4 class="team-name"><!-- cms:team2_name -->Adipiscing Elit<!-- /cms:team2_name --></h4>
+          <p class="team-role"><!-- cms:team2_role -->Sed Do Eiusmod<!-- /cms:team2_role --></p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-photo">
+          <img src="3.png" alt="Sam Rivera" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        </div>
+        <div>
+          <h4 class="team-name"><!-- cms:team3_name -->Tempor Incididunt<!-- /cms:team3_name --></h4>
+          <p class="team-role"><!-- cms:team3_role -->Ut Labore Designer<!-- /cms:team3_role --></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <h2 class="reveal"><!-- cms:cta_title -->Amet consectetur adipiscing?<!-- /cms:cta_title --></h2>
+    <p class="reveal reveal-delay-1"><!-- cms:cta_desc -->Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<!-- /cms:cta_desc --></p>
+    <a href="contact.html" class="btn btn-primary btn-arrow reveal reveal-delay-2"><!-- cms:cta_button -->Start a conversation<!-- /cms:cta_button --></a>
+  </div>
+</section>
+
+<!-- FOOTER (injected by components.js) -->
+<div id="site-footer"></div>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Initial hero reveal
+setTimeout(() => {
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+}, 100);
+</script>
+
+<script src="components.js"></script>
+</body>
+</html>
